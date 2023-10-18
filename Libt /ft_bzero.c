@@ -1,4 +1,4 @@
-void ft_bzero(void *s, size_t len)
+void ft_bzero(void *ptr, size_t len)
 {
-    ft_memset(s, 0, len);
+    ft_memset(ptr, 0, len);
 }

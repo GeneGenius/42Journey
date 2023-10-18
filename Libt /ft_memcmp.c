@@ -1,10 +1,10 @@
 #include "libft"
 
-void ft_memcpy (void  *dest, void *src, int n)
+void ft_memcmp (void  *dest, void *src, size_t n)
 {
     char *char_dest;
     char *char_src;
-    int i;
+    size_t i;
 
     i = 0;
     char_dest = (char *) dest;

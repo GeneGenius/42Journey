@@ -1,8 +1,8 @@
 #include "libft.h"
 
-void *ft_memmove (void *dest, void *src, int n)
+void *ft_memmove (void *dest, void *src, size_t n)
 {
-    int i;
+    size_t i;
 
     i = 0;
 
