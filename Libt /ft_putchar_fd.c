@@ -1,32 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eadu-gya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/23 12:00:23 by eadu-gya          #+#    #+#             */
-/*   Updated: 2023/10/23 12:12:15 by eadu-gya         ###   ########.fr       */
+/*   Created: 2023/10/23 11:29:08 by eadu-gya          #+#    #+#             */
+/*   Updated: 2023/10/23 11:30:27 by eadu-gya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// This function is to identify the first string character in a string 
-char	*ft_strrchr(const char *str, int c)
+void	ft_putchar_fd(char c, int fd)
 {
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		i++;
-	}
-	while (i >= 0)
-	{
-		if (str[i] == (char)c)
-			return ((char *)(str + i));
-		i--;
-	}
-	return (NULL);
+	write(fd, &c, 1);
 }

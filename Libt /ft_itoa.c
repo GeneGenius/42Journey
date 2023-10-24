@@ -1,46 +1,59 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: eugeneadugyamfi <eugeneadugyamfi@studen    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/23 13:36:46 by eadu-gya          #+#    #+#             */
+/*   Updated: 2023/10/24 12:01:24 by eugeneadugy      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
+
+static unsigned int	num_size(int num)
+{
+	unsigned int	length;
+
+	length = 0;
+	if (num == 0)
+		return (1);
+	if (num < 0)
+		length += 1;
+	while (num != 0)
+	{
+		num /= 10;
+		length ++;
+	}
+	return (length);
+}
 
 char	*ft_itoa(int n)
 {
-	int	sign;
-	int	temp;
-	int	i;
-	int	num_digits;
-	int	str_size;
-	char	*str;
+	char				*str;
+	unsigned int		num;
+	unsigned int		length;
 
-	sign = 1;
-	if (n < 0)
+	length = num_size(n);
+	string = (char *)malloc(sizeof(char) * (length + 1));
+	if (string == NULL)
+		return (NULL);
+	if (num < 0)
 	{
-		sign = -1;
-		n = -n;
+		string[0] = '-';
+		num = -n;
 	}
-	temp = n;
-	num_digits = 1;
-	while (temp >= 10)
+	else
+		num = n;
+	if (num == 0)
+		string[0] = '0';
+	string[length] = '\0';
+	while (num != 0)
 	{
-		temp /= 10;
-		num_digits++;
+		string[length - 1] = (num % 10) + '0';
+		num = num / 10;
+		length--;
 	}
-	int str_size = num_digits + (sign == -1) + 1;
-	char *str = (char *)malloc(str_size);
-	if (str)
-	{
-		i = 0;
-		while (num_digits > 0)
-			{
-				str[i] = '0' + (n % 10);
-				n /= 10;
-				num_digits--;
-				i++;
-			}
-	if (sign == -1)
-        {
-            str[i] = '-';
-            i++;
-        }
-        str[i] = '\0';
-    }
-    return (str);
+	return (string);
 }
-
