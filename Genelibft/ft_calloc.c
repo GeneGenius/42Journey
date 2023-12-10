@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eugeneadugyamfi <eugeneadugyamfi@studen    +#+  +:+       +#+        */
+/*   By: eadu-gya <eadu-gya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 09:19:50 by eadu-gya          #+#    #+#             */
-/*   Updated: 2023/11/22 05:07:57 by eugeneadugy      ###   ########.fr       */
+/*   Updated: 2023/12/10 18:44:58 by eadu-gya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,10 @@
 void	*ft_calloc(size_t count, size_t size)
 {
 	void	*ptr;
-	long	size_max;
 
-	size_max = 461168601842738790;
-	if (count == 0 || size == 0 || count > size_max / size)
-		return (NULL);
 	ptr = malloc(count * size);
+	if (count == 0 || size == 0)
+		return (malloc(0));
 	if (ptr == NULL)
 		return (NULL);
 	ft_memset(ptr, 0, count * size);
